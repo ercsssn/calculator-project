@@ -1,14 +1,14 @@
 // Basic Math Operators
 
-const add = function(num1, num2) {
+function add(num1, num2) {
 	return num1 + num2;
 };
 
-const subtract = function(num1, num2) {
+function subtract(num1, num2) {
 	return num1 - num2;
 };
 
-const sum = function(...digits) {
+function total(...digits) {
   numbers = digits[0];
   let total = numbers.reduce((result, number) => {
     return result + number;
@@ -17,7 +17,7 @@ const sum = function(...digits) {
 	
 };
 
-const multiply = function(...digits) {
+function multiply(...digits) {
   numbers = digits[0];
   let product = numbers.reduce((result, number) => {
     return result * number;
@@ -25,11 +25,11 @@ const multiply = function(...digits) {
   return product;
 };
 
-const power = function(num1 , num2) {
+function power(num1 , num2) {
 	return num1 ** num2;
 };
 
-const factorial = function(num) {
+function factorial(num) {
   
   if (num == 0) {
     return 1;
@@ -44,4 +44,12 @@ const factorial = function(num) {
     return result * number;
   }, 1);
   return total;
+};
+
+
+// Operate Function
+
+function operate(operation,num1,num2) {
+    
+    return operation(num1,num2);
 };
