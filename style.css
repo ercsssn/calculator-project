@@ -4,6 +4,7 @@
 }
 
 html,body{
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     height: 100%;
     margin: 0;
@@ -56,35 +57,37 @@ html,body{
     border: solid black;
 }
 
-.on-btn{
-    width: 50px;
-    height: 20px;
+.buttons {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 450px;
+    height: 400px;
+    margin: 10px;
+    gap: 18px;
+}
+
+.btn {
     border: solid black;
     border-radius: 8px;
 }
 
-.sm-buttons {
-    border: solid black;
-    width: 450px;
-    height: 30px;
-    margin: 10px;
+.nm-btn {
+    font-size: 22px;
+    height: 70px;
+    width: 75px;
 }
 
-.buttons-container {
-    display: flex;
+.sm-btn{
+    font-size: 11px;
+    width: 75px;
+    height: 35px;
 }
 
-.input,.ops {
-    margin: 10px;
-    height: 420px;
+.plus {
+    height: 162px;
 }
 
-.input {
-    border: solid black;
-    width: 260px;
-}
 
-.ops {
-    border: solid black;
-    width: 160px;
-}
