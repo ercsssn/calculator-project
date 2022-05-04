@@ -53,3 +53,32 @@ function operate(operation,num1,num2) {
     
     return operation(num1,num2);
 };
+
+let display;
+function selectKey(e) {
+  let input;
+  if (e.target !== e.currentTarget) {
+      button = e.target;
+
+      let value = button.textContent;
+      input = value;
+  }
+
+  if (display === undefined) {
+    display = input;
+  }else {
+    display = display + input;
+  }
+
+  displayInput();
+  
+}
+
+//Display Input
+function displayInput() {
+  let screen = document.querySelector('.screen');
+  screen.textContent = display;
+}
+
+const buttons = document.querySelector('.buttons');
+buttons.addEventListener('click',selectKey);
