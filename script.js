@@ -54,7 +54,6 @@ function operate(operation,num1,num2) {
     return operation(num1,num2);
 };
 
-let display;
 function selectKey(e) {
   let input;
   if (e.target !== e.currentTarget) {
@@ -75,10 +74,13 @@ function selectKey(e) {
 }
 
 //Display Input
+let display;
 function displayInput() {
   let screen = document.querySelector('.screen');
   screen.textContent = display;
 }
 
-const buttons = document.querySelector('.buttons');
-buttons.addEventListener('click',selectKey);
+const buttons = document.querySelectorAll('.buttons .nm-btn');
+buttons.forEach(button => button.addEventListener('click', function () {
+  selectKey(button);
+}));
