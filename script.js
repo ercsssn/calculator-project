@@ -1,3 +1,11 @@
+//Global Variables
+let previousNumber = "";
+let currentNumber = "";
+let operator = "";
+
+const currentDisplayNumber = document.querySelector('.currentNumber');
+const previousDisplayNumber = document.querySelector('.previousNumber');
+
 // Basic Math Operators
 function add(num1, num2) {
   
@@ -11,7 +19,6 @@ function operate(operation,num1,num2) {
 };
 
 //Display Input
-let display = '';
 function displayInput() {
   let screen = document.querySelector('.screen');
   screen.textContent = display;
