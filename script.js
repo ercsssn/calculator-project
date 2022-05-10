@@ -6,6 +6,22 @@ let operator = "";
 const currentDisplayNumber = document.querySelector('.currentNumber');
 const previousDisplayNumber = document.querySelector('.previousNumber');
 
+//Clear function
+function clearAll() {
+  currentNumber = '';
+  previousNumber = '';
+  operator = '';
+
+  currentDisplayNumber.textContent = '0';
+  previousDisplayNumber.textContent = '';
+}
+
+const clear = document.querySelectorAll('.clear');
+clear.forEach((btn) => {
+  btn.addEventListener('click', clearAll);
+ });
+
+
 function processNum(num) {
 
   if (previousNumber !== "" && currentNumber !== "" && operator === "") {
@@ -20,7 +36,7 @@ function processNum(num) {
 }
 
 //Add Event Listener to number buttons
-const numberButtons = document.querySelectorAll('.buttons .num');
+const numberButtons = document.querySelectorAll('.num');
 numberButtons.forEach((btn) => {
   btn.addEventListener('click', (e) => {
     processNum(e.target.textContent);
