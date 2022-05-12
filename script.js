@@ -51,9 +51,28 @@ function evaluateOperator(op) {
 }
 
 // Operate Function
-function operate(operation,num1,num2) {
-    
-    return operation(num1,num2);
+function operate() {
+  previousNumber = Number(previousNumber);
+  currentNumber = Number(currentNumber);
+
+  if (operator === "+") {
+    previousNumber += currentNumber;
+  } else if (operator === "-") {
+    previousNumber -= currentNumber;
+  } else if (operator === "*") {
+    previousNumber *= currentNumber;
+  } else if {
+    if (currentNumber <= 0) {
+      previousNumber = "undefined";
+      //displayResult
+      return;
+    }
+    previousNumber /= currentNumber;
+  }
+  
+  //previousNumber = roundNumber
+  previousNumber = previousNumber.toString();
+  //displayResult  
 };
 
 // //Display Input
