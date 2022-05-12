@@ -21,6 +21,10 @@ clear.forEach((btn) => {
   btn.addEventListener('click', clearAll);
  });
 
+ function roundNumber(num) {
+   return Math.round(num * 100000) / 100000;
+ }
+
 
 function processNum(num) {
 
@@ -81,7 +85,7 @@ function operate() {
     previousNumber /= currentNumber;
   }
   
-  //previousNumber = roundNumber
+  previousNumber = roundNumber(previousNumber);
   previousNumber = previousNumber.toString();
   displayResult();
 };
