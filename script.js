@@ -50,6 +50,17 @@ function evaluateOperator(op) {
   currentNumber = "";
 }
 
+function displayResult() {
+  if (previousNumber.length <= 11) {
+    currentDisplayNumber.textContent = previousNumber;
+  } else {
+    currentDisplayNumber.textContent = previousNumber.slice(0,11) + "...";
+  }
+  previousDisplayNumber.textContent = "";
+  operator = "";
+  currentNumber = "";
+}
+
 // Operate Function
 function operate() {
   previousNumber = Number(previousNumber);
@@ -61,10 +72,10 @@ function operate() {
     previousNumber -= currentNumber;
   } else if (operator === "*") {
     previousNumber *= currentNumber;
-  } else if {
+  } else if (operator === "/") {
     if (currentNumber <= 0) {
       previousNumber = "undefined";
-      //displayResult
+      displayResult();
       return;
     }
     previousNumber /= currentNumber;
@@ -72,7 +83,7 @@ function operate() {
   
   //previousNumber = roundNumber
   previousNumber = previousNumber.toString();
-  //displayResult  
+  displayResult();
 };
 
 // //Display Input
