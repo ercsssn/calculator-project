@@ -43,12 +43,6 @@ numberButtons.forEach((btn) => {
   });
 });
 
-// Basic Math Operators
-function add(num1, num2) {
-  
-	return num1 + num2;
-};
-
 // Operate Function
 function operate(operation,num1,num2) {
     
