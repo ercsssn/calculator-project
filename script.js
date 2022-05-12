@@ -43,6 +43,13 @@ numberButtons.forEach((btn) => {
   });
 });
 
+function evaluateOperator(op) {
+  operator = op;
+  previousDisplayNumber.textContent = previousNumber + " " + operator;
+  currentDisplayNumber.textContent = '0';
+  currentNumber = "";
+}
+
 // Operate Function
 function operate(operation,num1,num2) {
     
