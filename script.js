@@ -27,7 +27,7 @@ function processNum(num) {
 
 function evaluateOperator(op) {
   operator = op;
-  previousDisplayNumber.textContent = previousNumber + " " + operator;
+  previousDisplayNumber.textContent = previousNumber + operator;
   currentDisplayNumber.textContent = '0';
   currentNumber = "";
 }
@@ -52,9 +52,9 @@ function operate() {
     previousNumber += currentNumber;
   } else if (operator === "-") {
     previousNumber -= currentNumber;
-  } else if (operator === "*") {
+  } else if (operator === "X") {
     previousNumber *= currentNumber;
-  } else if (operator === "/") {
+  } else if (operator === "÷") {
     if (currentNumber <= 0) {
       previousNumber = "undefined";
       displayResult();
@@ -76,7 +76,7 @@ function processOperator(operator) {
     evaluateOperator(operator);
   }else {
     operate();
-    previousDisplayNumber.textContent = previousNumber + " " + operator;
+    previousDisplayNumber.textContent = previousNumber + operator;
     currentDisplayNumber.textContent = 0;
   }
 }
@@ -88,6 +88,14 @@ let operator = "";
 
 const currentDisplayNumber = document.querySelector('.currentNumber');
 const previousDisplayNumber = document.querySelector('.previousNumber');
+
+//Add Event Listener to equals button
+const equals = document.querySelector('.equals');
+equals.addEventListener("click", () => {
+  if (currentNumber != "" && previousNumber != "") {
+    operate();
+  }
+});
 
 //Add Event Listener to number buttons
 const numberButtons = document.querySelectorAll('.num');
