@@ -68,6 +68,8 @@ function operate() {
   displayResult();
 };
 
+
+
 //Global Variables
 let previousNumber = "";
 let currentNumber = "";
@@ -81,6 +83,14 @@ const numberButtons = document.querySelectorAll('.num');
 numberButtons.forEach((btn) => {
   btn.addEventListener('click', (e) => {
     processNum(e.target.textContent);
+  });
+});
+
+//Add Event Listener to operator buttons
+const operatorButtons = document.querySelectorAll('.ops');
+operatorButtons.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    processOperator(e.target.textContent);
   });
 });
 
