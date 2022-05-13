@@ -68,7 +68,18 @@ function operate() {
   displayResult();
 };
 
-
+function processOperator(operator) {
+  if (previousNumber === "") {
+    previousNumber = currentNumber;
+    evaluateOperator(operator);
+  }else if (currentNumber === "") {
+    evaluateOperator(operator);
+  }else {
+    operate();
+    previousDisplayNumber.textContent = previousNumber + " " + operator;
+    currentDisplayNumber.textContent = 0;
+  }
+}
 
 //Global Variables
 let previousNumber = "";
