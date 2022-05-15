@@ -13,7 +13,7 @@ function clearAll() {
  }
 
 function processNum(num) {
-
+  
   if (previousNumber !== "" && currentNumber !== "" && operator === "") {
     previousNumber = "";
     currentDisplayNumber.textContent = currentNumber;
@@ -23,16 +23,22 @@ function processNum(num) {
     currentNumber += num;
     currentDisplayNumber.textContent = currentNumber;
   }
+
+  // console.log(previousNumber);
+  // console.log(currentNumber);
+  // console.log(operator);
 }
 
-function evaluateOperator(op) {
-  operator = op;
+function evaluateOperator(text) {
+  operator = text;
   previousDisplayNumber.textContent = previousNumber + operator;
   currentDisplayNumber.textContent = '0';
   currentNumber = "";
 }
 
 function displayResult() {
+  previousNumber = previousNumber.toString();
+
   if (previousNumber.length <= 11) {
     currentDisplayNumber.textContent = previousNumber;
   } else {
@@ -41,12 +47,17 @@ function displayResult() {
   previousDisplayNumber.textContent = "";
   operator = "";
   currentNumber = "";
+
+  // console.log('values after displaying');
+  // console.log(previousNumber);
+  // console.log(currentNumber); 
+  
 }
 
 // Operate Function
 function operate() {
-  previousNumber = Number(previousNumber);
-  currentNumber = Number(currentNumber);
+  previousNumber = parseInt(previousNumber);
+  currentNumber = parseInt(currentNumber);
 
   if (operator === "+") {
     previousNumber += currentNumber;
@@ -62,22 +73,28 @@ function operate() {
     }
     previousNumber /= currentNumber;
   }
-  
+  // console.log('After the operation')
+  // console.log(previousNumber);
+  // console.log(currentNumber); 
+
   previousNumber = roundNumber(previousNumber);
   previousNumber = previousNumber.toString();
   displayResult();
 };
 
-function processOperator(operator) {
+function processOperator(op) {
+  // console.log(previousNumber);
+  // console.log(currentNumber);
   if (previousNumber === "") {
     previousNumber = currentNumber;
-    evaluateOperator(operator);
+    evaluateOperator(op);
   }else if (currentNumber === "") {
-    evaluateOperator(operator);
+    evaluateOperator(op);
   }else {
     operate();
-    previousDisplayNumber.textContent = previousNumber + operator;
+    operator = op;
     currentDisplayNumber.textContent = 0;
+    previousDisplayNumber.textContent = previousNumber + op;
   }
 }
 
